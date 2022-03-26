@@ -1,8 +1,9 @@
 <?php 
-// session_start();
-// if(!isset($_SESSION['loggedin'])){
-//     header("location: login.php");
-// }
+session_start();
+if(!isset($_SESSION['loggedin'])){
+    header("location: login.php");
+}
+
 require_once("dbconfig.php");
 
 if ($_POST){
@@ -33,7 +34,7 @@ if ($_POST){
     header("location: document.php");
 
 }else {
-    
+    echo "Welcome ".$_SESSION['stf_name'];
     $doc_id = $_GET['id'];
     $sql = "SELECT *
             FROM documents
